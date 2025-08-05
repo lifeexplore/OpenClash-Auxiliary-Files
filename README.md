@@ -5,6 +5,6 @@ OpenClash的辅助文件，包括：
 3. Setup Screenshots: 设置截屏
 
 说明：
-1. 基于OpwnWrt
+1. 基于OpenWrt
 2. OpenClash版本：alpha-smart-gd794302
 3. 旁路由模式

@@ -9,3 +9,4 @@ OpenClash的辅助文件，包括：
 2. OpenClash版本：alpha-smart-gd794302
 3. 旁路由模式
 4. 自定义模板地址：https://raw.githubusercontent.com/lifeexplore/OpenClash-Auxiliary-Files/refs/heads/openclash-auxiliary-files/ACL4SSR.ini
+5. 未截图的不需要设置

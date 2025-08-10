@@ -1,7 +1,7 @@
 # OpenClash-Auxiliary-Files
 OpenClash的辅助文件，包括：
 1. [ACL4SSR.ini](https://github.com/lifeexplore/OpenClash-Auxiliary-Files/blob/openclash-auxiliary-files/ACL4SSR.ini)：自定义模板
-2. addition.list：Proxy补充站点
+2. [addition.list](https://github.com/lifeexplore/OpenClash-Auxiliary-Files/blob/openclash-auxiliary-files/addition.list)：Proxy补充站点
 3. Setup Screenshots：设置截屏
 
 说明：

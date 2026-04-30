@@ -49,7 +49,7 @@
       {"rule_set": "geosite-onedrive", "outbound": "🚀 节点选择"},
       {"rule_set": "geosite-microsoft", "outbound": "Ⓜ️ 微软服务"},
       {"rule_set": "geosite-apple", "outbound": "🍎 苹果服务"},
-      {"rule_set": "geosite-telegram", "outbound": "📲 Telegram"},
+      {"rule_set": "geosite-telegram", "outbound": "📲 电报信息"},
       {"rule_set": "geosite-tiktok", "outbound": "🌍 国外媒体"},
       {"rule_set": "geosite-netflix", "outbound": "🌍 国外媒体"},
       {"rule_set": "geosite-paypal", "outbound": "🚀 节点选择"},
@@ -59,7 +59,7 @@
       {"rule_set": "geosite-cn", "outbound": "🎯 全球直连"},
       {"rule_set": "geoip-google", "outbound": "📢 谷歌FCM"},
       {"rule_set": "geoip-apple", "outbound": "🍎 苹果服务"},
-      {"rule_set": "geoip-telegram", "outbound": "📲 Telegram"},
+      {"rule_set": "geoip-telegram", "outbound": "📲 电报信息"},
       {"rule_set": "geoip-netflix", "outbound": "🌍 国外媒体"},
       {"rule_set": "geoip-cn", "outbound": "🎯 全球直连"}
     ],

@@ -1,5 +1,7 @@
 {
   "dns": {
+	"enable": true,
+    "listen": "0.0.0.0:1053",   
     "servers": [
       {"tag": "local", "type": "udp", "server": "223.5.5.5"},
       {"tag": "public", "type": "https", "server": "dns.alidns.com", "domain_resolver": "local"},
@@ -14,9 +16,7 @@
     ],
     "final": "foreign",
     "strategy": "ipv4_only",
-    "independent_cache": true,
-	"enable": true,
-    "listen": "0.0.0.0:1053",    
+    "independent_cache": true,   
     "reverse_mapping": true
   },
   "outbounds": [

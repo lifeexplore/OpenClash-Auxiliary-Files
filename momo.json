@@ -15,6 +15,8 @@
     "final": "foreign",
     "strategy": "ipv4_only",
     "independent_cache": true,
+	"enable": true,
+    "listen": "0.0.0.0:1053",    
     "reverse_mapping": true
   },
   "outbounds": [

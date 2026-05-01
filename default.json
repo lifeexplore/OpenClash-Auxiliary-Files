@@ -1,0 +1,30 @@
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "::",
+      "listen_port": 5353,
+      "udp": true
+    }
+    // 这里之后你可以继续添加 tproxy、mixed 等 inbound
+  ],
+  "outbounds": [
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    }
+    // 你的其他 outbound（vless、trojan、shadowsocks 等）会在这里
+  ],
+  "route": {
+    "rules": [
+      {
+        "inbound": ["dns-in"],
+        "outbound": "dns-out"
+      }
+    ]
+  }
+}

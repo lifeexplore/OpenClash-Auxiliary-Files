@@ -3,16 +3,16 @@
     "servers": [
       {"tag": "local", "type": "https", "server": "223.5.5.5"},
       {"tag": "public", "type": "https", "server": "dns.alidns.com", "domain_resolver": "local"},
-      {"tag": "foreign", "type": "https", "server": "8.8.8.8", "detour": "🚀 默认代理"}
+      {"tag": "remote", "type": "https", "server": "1.1.1.1", "detour": "🚀 默认代理"}
     ],
     "rules": [
       {"clash_mode": "direct", "server": "local"},
-      {"clash_mode": "global", "server": "foreign"},
+      {"clash_mode": "global", "server": "remote"},
       {"query_type": "HTTPS", "action": "reject"},
-      {"domain_suffix": ["services.googleapis.cn", "googleapis.cn", "xn--ngstr-lra8j.com"], "server": "foreign"},
+      {"domain_suffix": ["services.googleapis.cn", "googleapis.cn", "xn--ngstr-lra8j.com"], "server": "remote"},
       {"rule_set": ["geosite-cn", "geosite-steamcn", "geosite-apple"], "server": "local"}
     ],
-    "final": "foreign",
+    "final": "remote",
     "strategy": "ipv4_only",
     "independent_cache": true,
     "reverse_mapping": true
@@ -44,7 +44,7 @@
   ],
   "route": {
     "rules": [
-      {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"]},
+      {"action": "sniff"},
       {"inbound": "dns-in", "action": "hijack-dns"},
       {"ip_is_private": true, "outbound": "🎯 全球直连"},
       {"clash_mode": "direct", "outbound": "🎯 全球直连"},
@@ -103,18 +103,6 @@
       "listen_port": 1053
     },
     {
-      "tag": "http-in",
-      "type": "http",
-      "listen": "::",
-      "listen_port": 8080
-    },
-    {
-      "tag": "socks-in",
-      "type": "socks",
-      "listen": "::",
-      "listen_port": 1080
-    },
-    {
       "tag": "redirect-in",
       "type": "redirect",
       "listen": "::",
@@ -132,7 +120,6 @@
       "interface_name": "momo",
       "address": [
         "172.31.0.1/30",
-        "fdfe:dcba:9876::1/126"
       ],
       "auto_route": false,
       "auto_redirect": false

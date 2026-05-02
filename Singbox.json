@@ -1,0 +1,110 @@
+{
+  "log": {
+    "level": "warn",
+    "timestamp": true
+  },
+  "experimental": {
+    "cache_file": {
+        "enabled": true,
+        "path": "/etc/momo/run/cache.db"
+    },
+    "clash_api": {
+      "external_controller": "0.0.0.0:9090", 
+      "external_ui": "ui",
+      "secret": "", 
+      "default_mode": "Rule"
+    }
+  },
+  "dns": {
+    "servers": [
+      { "tag": "local", "type": "https", "server": "223.5.5.5"},
+      { "tag": "remote", "type": "https", "server": "1.1.1.1", "detour": "proxy" },
+      { "tag": "block", "address": "rcode://name_error" }
+    ],
+    "rules": [
+      { "clash_mode": "Direct", "server": "local" },
+      { "clash_mode": "Global", "server": "remote" },
+      { "rule_set": "geosite-cn", "server": "local" },
+      { "rule_set": "category-ads-all", "server": "block" }
+    ],
+    "final": "remote",
+    "strategy": "ipv4_only",
+    "independent_cache": true,
+    "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15" }
+  },
+  "inbounds": [
+        {
+          "tag": "dns-in",
+          "type": "direct",
+          "listen": "::",
+          "listen_port": 1053
+        },
+ 		{
+    	  "type": "mixed",
+    	  "tag": "mixed-in",
+    	  "listen": "::",
+    	  "listen_port": 2080,
+    	  "sniff": true
+  		},        
+        {
+          "tag": "redirect-in",
+          "type": "redirect",
+          "listen": "::",
+          "listen_port": 7890
+        },
+        {
+          "tag": "tproxy-in",
+          "type": "tproxy",
+          "listen": "::",
+          "listen_port": 7891
+        },
+        {
+          "tag": "tun-in",
+          "type": "tun",
+          "interface_name": "momo",
+          "address": [
+            "172.31.0.1/30"
+          ],
+          "auto_route": false,
+          "auto_redirect": false
+        }
+  ], 
+  "outbounds": [
+    { "type": "selector", "tag": "GLOBAL", "outbounds": ["auto", "hk", "tw", "jp", "sg", "us", "direct"] },
+    { "type": "urltest", "tag": "auto", "outbounds": [], "interval": "300s", "tolerance": 50 },
+    
+    { "type": "selector", "tag": "hk", "outbounds": [] },
+    { "type": "selector", "tag": "tw", "outbounds": [] },
+    { "type": "selector", "tag": "jp", "outbounds": [] },
+    { "type": "selector", "tag": "sg", "outbounds": [] },
+    { "type": "selector", "tag": "us", "outbounds": [] },
+        
+    { "type": "direct", "tag": "direct" },
+    { "type": "block", "tag": "REJECT" }
+  ],
+  "route": {
+    "default_domain_resolver": "local",
+    "auto_detect_interface": true,
+    "final": "proxy",    
+    "rules": [
+      { "action": "sniff" },
+      { "inbound": "dns-in", "action": "hijack-dns" },  
+      { "protocol": "dns", "outbound": "dns-out" },
+      { "clash_mode": "Direct", "outbound": "DIRECT" },
+      { "clash_mode": "Global", "outbound": "GLOBAL" },
+      
+      { "rule_set": "geosite-cn", "outbound": "DIRECT" },
+      { "rule_set": "category-ads-all", "outbound": "REJECT" },
+      { "ip_is_private": true, "outbound": "DIRECT" },
+      
+      { "rule_set": "geosite-netflix", "outbound": "Netflix" },
+      { "rule_set": "geosite-openai", "outbound": "ChatGPT" }
+    ],
+    "rule_set": [
+      { "tag": "geosite-cn", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-cn.srs" },
+      { "tag": "category-ads-all", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-category-ads-all.srs" },
+      { "tag": "geosite-netflix", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-netflix.srs" },
+      { "tag": "geosite-openai", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-openai.srs" }
+    ]
+  } 
+}

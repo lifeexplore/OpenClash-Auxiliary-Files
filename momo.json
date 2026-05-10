@@ -19,7 +19,7 @@
   },
   "outbounds": [
     {"tag": "🚀 节点选择", "type": "selector", "outbounds": ["💿 专线节点", "🇭🇰 香港节点", "🌏 亚洲节点", "🇨🇳 台湾节点", "🇺🇲 美国节点", "🌎 其它节点"]},
-    {"tag": "🧠 AI-Group", "type": "selector", "outbounds": ["🚀 节点选择","🌏 亚洲节点", "🇨🇳 台湾节点", "🇺🇲 美国节点"]},
+    {"tag": "🧠 AI-Group", "type": "selector", "outbounds": ["🚀 节点选择", "🌏 亚洲节点", "🇨🇳 台湾节点", "🇺🇲 美国节点"]},
     {"tag": "🌍 国外媒体", "type": "selector", "outbounds": ["🎯 全球直连", "♻️ 自动选择", "🚀 节点选择"]},
     {"tag": "🍀 Google", "type": "selector", "outbounds": ["🎯 全球直连", "♻️ 自动选择", "🚀 节点选择"]},
     {"tag": "📲 电报信息", "type": "selector", "outbounds": ["🎯 全球直连", "♻️ 自动选择", "🚀 节点选择"]},
@@ -44,14 +44,15 @@
       {"rule_set": "AI", "outbound": "🧠 AI-Group"},
       {"rule_set": "YouTube", "outbound": "🌍 国外媒体"},
       {"rule_set": "Google", "outbound": "🍀 Google"},
-      {"rule_set": "Googleip", "outbound": "🍀 Google"},
       {"rule_set": "Telegram", "outbound": "📲 电报信息"},
-      {"rule_set": "Telegramip", "outbound": "📲 电报信息"},
       {"rule_set": "Communication", "outbound": "📲 电报信息"},
       {"rule_set": "Twitter", "outbound": "📲 电报信息"},
       {"rule_set": "Out-cn", "outbound": "🚀 节点选择"},
       {"rule_set": "CN", "outbound": "🎯 全球直连"},
-      {"rule_set": "geoip-cn", "outbound": "🎯 全球直连"}
+      {"action": "resolve"},      
+      {"rule_set": "Googleip", "outbound": "🍀 Google"},
+      {"rule_set": "Telegramip", "outbound": "📲 电报信息"},
+      {"rule_set": "geoip-cn", "outbound": "🎯 全球直连"}      
     ],
     "rule_set": [
       {"tag": "AI", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-!cn.srs", "download_detour": "🎯 全球直连"},

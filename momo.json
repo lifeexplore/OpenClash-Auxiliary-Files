@@ -49,7 +49,6 @@
       {"rule_set": "Twitter", "outbound": "📲 电报信息"},
       {"rule_set": "Out-cn", "outbound": "🚀 节点选择"},
       {"rule_set": "CN", "outbound": "🎯 全球直连"},
-      {"action": "resolve"},      
       {"rule_set": "Googleip", "outbound": "🍀 Google"},
       {"rule_set": "Telegramip", "outbound": "📲 电报信息"},
       {"rule_set": "geoip-cn", "outbound": "🎯 全球直连"}      

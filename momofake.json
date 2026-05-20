@@ -139,8 +139,11 @@
         "172.31.0.1/30",
         "fdfe:dcba:9876::1/126"
       ],
-      "auto_route": false,
-      "auto_redirect": false
+      "auto_route": true,
+  	  "strict_route": true,
+  	  "stack": "system",
+  	  "sniff": true,
+  	  "sniff_override_destination": true
     }
   ],
   "experimental": {

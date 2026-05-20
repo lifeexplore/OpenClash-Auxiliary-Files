@@ -5,14 +5,14 @@
     	"tag": "local", 
     	"type": "udp", 
     	"server": "223.5.5.5",
-    	"detour": "direct"
+    	"detour": "🎯 全球直连"
   	  },
   	  {
     	"tag": "public", 
     	"type": "https", 
     	"server": "dns.alidns.com", 
     	"domain_resolver": "local",
-    	"detour": "direct" 
+    	"detour": "🎯 全球直连" 
       },
   	  {
     	"tag": "foreign", 

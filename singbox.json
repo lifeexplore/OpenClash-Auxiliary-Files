@@ -53,7 +53,7 @@
       {"rule_set": "Communication", "outbound": "📲 电报信息"},
       {"rule_set": "Twitter", "outbound": "📲 电报信息"},
       {"rule_set": "Out-cn", "outbound": "🚀 节点选择"},
-      {"rule_set": "CN", "outbound": "🎯 全球直连"},
+      {"rule_set": "geosite-cn", "outbound": "🎯 全球直连"},
       {"action": "resolve"},      
       {"rule_set": "Googleip", "outbound": "🍀 Google"},
       {"rule_set": "Telegramip", "outbound": "📲 电报信息"},
@@ -67,7 +67,7 @@
       {"tag": "Telegram", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geosite/telegram.srs", "download_detour": "🎯 全球直连"},
       {"tag": "Twitter", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geosite/twitter.srs", "download_detour": "🎯 全球直连"},
       {"tag": "Out-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ip-geo-detect@!cn.srs", "download_detour": "🎯 全球直连"},
-      {"tag": "CN", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs", "download_detour": "🎯 全球直连"},
+      {"tag": "geosie-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs", "download_detour": "🎯 全球直连"},
       {"tag": "Googleip", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/google.srs", "download_detour": "🎯 全球直连"},
       {"tag": "Telegramip", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/telegram.srs", "download_detour": "🎯 全球直连"},
       {"tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs", "download_detour": "🎯 全球直连"}

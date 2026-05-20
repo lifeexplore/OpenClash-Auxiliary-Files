@@ -39,11 +39,8 @@
   "route": {
 	"auto_detect_interface": true,  
     "rules": [
-      {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"]},
-      {"inbound": "dns-in", "action": "hijack-dns"},
       {"inbound": "dns", "action": "hijack-dns"},
       {"ip_is_private": true, "outbound": "🎯 全球直连"},
-  	  {"ip_cidr": ["10.0.0.0/24"],"outbound": "🎯 全球直连"},
       {"clash_mode": "direct", "outbound": "🎯 全球直连"},
       {"clash_mode": "global", "outbound": "GLOBAL"},
       {"rule_set": "AI", "outbound": "🧠 AI-Group"},
@@ -72,8 +69,7 @@
       {"tag": "Telegramip", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/telegram.srs", "download_detour": "🎯 全球直连"},
       {"tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs", "download_detour": "🎯 全球直连"}
     ],
-    "final": "🐠 漏网之鱼",
-    "default_domain_resolver": {"server": "public"}
+    "final": "🐠 漏网之鱼"
   },
   "inbounds": [
 	{

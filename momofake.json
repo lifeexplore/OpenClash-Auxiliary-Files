@@ -65,8 +65,7 @@
     {"tag": "🎯 全球直连", "type": "direct"}
   ],
   "route": {
-	"auto_detect_interface": true,
-  	"override_android_vpn": false,  
+	"auto_detect_interface": true,  
     "rules": [
       {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"]},
       {"inbound": "dns-in", "action": "hijack-dns"},

@@ -69,7 +69,7 @@
       {"tag": "Telegramip", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/telegram.srs", "download_detour": "🎯 全球直连"},
       {"tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs", "download_detour": "🎯 全球直连"}
     ],
-    "final": "🐠 漏网之鱼",
+    "final": "🐠 漏网之鱼"
   },
   "inbounds": [
 	{

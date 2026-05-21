@@ -1,10 +1,29 @@
 {
   "dns": {
     "servers": [
-      {"tag": "local", "address": "223.5.5.5"},
-      {"tag": "public", "address": "223.6.6.6"},
-      {"tag": "foreign", "address": "https://8.8.8.8", "detour": "🚀 节点选择"},
-      {"tag": "fakeip", "address": "fakeip", "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"}
+      {
+        "tag": "local",
+        "type": "udp",
+        "server": "223.5.5.5"
+      },
+      {
+        "tag": "public",
+        "type": "https",
+        "server": "://alidns.com",
+        "domain_resolver": "local"
+      },
+      {
+        "tag": "foreign",
+        "type": "https",
+        "server": "8.8.8.8",
+        "detour": "🚀 节点选择"
+      },
+      {
+        "tag": "fakeip",
+        "type": "fakeip",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
+      }
     ],
     "rules": [
       {"clash_mode": "direct", "server": "local"},

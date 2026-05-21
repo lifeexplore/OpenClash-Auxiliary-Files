@@ -11,8 +11,7 @@
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
       {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1},
-      {"rule_set": "geosite-cn", "server": "local"},
-      {"outbound": "any", "server": "local"}
+      {"rule_set": "geosite-cn", "server": "local"}
     }      
     ],
     "final": "foreign",
@@ -46,7 +45,6 @@
       {"ip_is_private": true, "outbound": "🎯 全球直连"},
       {"clash_mode": "direct", "outbound": "🎯 全球直连"},
       {"clash_mode": "global", "outbound": "GLOBAL"},
-	  {"port": [53], "outbound": "🎯 全球直连"},    
       {"rule_set": "AI", "outbound": "🧠 AI-Group"},
       {"rule_set": "YouTube", "outbound": "🌍 国外媒体"},
       {"rule_set": "Google", "outbound": "🍀 Google"},

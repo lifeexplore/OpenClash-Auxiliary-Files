@@ -3,6 +3,7 @@
     "servers": [
       {"tag": "local", "address": "223.5.5.5"},
       {"tag": "public", "address": "223.6.6.6"},
+      {"tag": "foreign", "address": "223.6.6.6"},
       {"tag": "fakeip", "address": "fakeip"}
     ],
     "rules": [

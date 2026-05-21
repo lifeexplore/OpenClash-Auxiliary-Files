@@ -1,24 +1,25 @@
 {
   "dns": {
+  	"fakeip": {"enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"},
     "servers": [
-      {"tag": "local", "address": "223.5.5.5"},
-      {"tag": "public", "address": "223.6.6.6"},
-      {"tag": "foreign", "address": "8.8.8.8", "detour": "GLOBAL"},
+      {"tag": "local", "address": "223.5.5.5/dns-query", "detour": "direct"},
+      {"tag": "public", "address": "223.6.6.6/dns-query", "detour": "direct"},
+      {"tag": "foreign", "address": "8.8.8.8/dns-query", "detour": "GLOBAL"},
       {"tag": "fakeip", "address": "fakeip"}
     ],
     "rules": [
+      {"outbound": "any", "action": "route", "server": "local", "disable_cache": true},
    	  {"clash_mode": "direct", "server": "local"}, 
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
       {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1},
-      {"rule_set": "geosite-cn", "server": "local"}
+      {"rule_set": "geosite-cn", "action": "route", "server": "local"}
     ],
     "final": "foreign",
     "client_subnet": "223.5.5.0/24",
     "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
-  	"fakeip": {"enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"}
   },
   "outbounds": [
     {"tag": "🚀 节点选择", "type": "selector", "outbounds": ["💿 专线节点", "🇭🇰 香港节点", "🌏 亚洲节点", "🇨🇳 台湾节点", "🇺🇲 美国节点", "🌎 其它节点"]},
@@ -39,24 +40,23 @@
   ],
   "route": { 
     "rules": [
-      {"outbound": "any", "action": "route", "server": "local"},    
-      {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"]},
+      {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"], "timeout": "500ms"},
       {"type": "logical", "mode": "or", "rules": [{"port": 53}, {"protocol": "dns"}], "action": "hijack-dns"},
-      {"ip_is_private": true, "outbound": "🎯 全球直连"},
-      {"clash_mode": "direct", "outbound": "🎯 全球直连"},
-      {"clash_mode": "global", "outbound": "GLOBAL"},
-      {"rule_set": "AI", "outbound": "🧠 AI-Group"},
-      {"rule_set": "YouTube", "outbound": "🌍 国外媒体"},
-      {"rule_set": "Google", "outbound": "🍀 Google"},
-      {"rule_set": "Telegram", "outbound": "📲 电报信息"},
-      {"rule_set": "Communication", "outbound": "📲 电报信息"},
-      {"rule_set": "Twitter", "outbound": "📲 电报信息"},
-      {"rule_set": "Out-cn", "outbound": "🚀 节点选择"},
-      {"rule_set": "geosite-cn", "outbound": "🎯 全球直连"},
+      {"ip_is_private": true, "action": "route", "outbound": "🎯 全球直连"},
+      {"clash_mode": "direct", "action": "route", "outbound": "🎯 全球直连"},
+      {"clash_mode": "global", "action": "route", "outbound": "GLOBAL"},
+      {"rule_set": "AI", "action": "route", "outbound": "🧠 AI-Group"},
+      {"rule_set": "YouTube", "action": "route", "outbound": "🌍 国外媒体"},
+      {"rule_set": "Google", "action": "route", "outbound": "🍀 Google"},
+      {"rule_set": "Telegram", "action": "route", "outbound": "📲 电报信息"},
+      {"rule_set": "Communication", "action": "route", "outbound": "📲 电报信息"},
+      {"rule_set": "Twitter", "action": "route", "outbound": "📲 电报信息"},
+      {"rule_set": "Out-cn", "action": "route", "outbound": "🚀 节点选择"},
+      {"rule_set": "geosite-cn", "action": "route", "outbound": "🎯 全球直连"},
       {"action": "resolve"},      
-      {"rule_set": "Googleip", "outbound": "🍀 Google"},
-      {"rule_set": "Telegramip", "outbound": "📲 电报信息"},
-      {"rule_set": "geoip-cn", "outbound": "🎯 全球直连"}      
+      {"rule_set": "Googleip", "action": "route", "outbound": "🍀 Google"},
+      {"rule_set": "Telegramip", "action": "route", "outbound": "📲 电报信息"},
+      {"rule_set": "geoip-cn", "action": "route", "outbound": "🎯 全球直连"}      
     ],
     "rule_set": [
       {"tag": "AI", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-!cn.srs", "download_detour": "🎯 全球直连"},
@@ -101,7 +101,13 @@
     "cache_file": {
       "enabled": true,
       "store_fakeip": true
-    }
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "ui",
+      "external_ui_download_url": "https://ghfast.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
+      "external_ui_download_detour": "direct"
+    }    
   },
   "log": {
     "disabled": false,

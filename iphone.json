@@ -4,7 +4,7 @@
     "servers": [
       {"tag": "local", "address": "https://223.5.5.5/dns-query", "detour": "direct"},
       {"tag": "public", "address": "https://223.6.6.6/dns-query", "detour": "direct"},
-      {"tag": "foreign", "address": "htpps://8.8.8.8/dns-query", "detour": "GLOBAL"},
+      {"tag": "foreign", "address": "https://8.8.8.8/dns-query", "detour": "GLOBAL"},
       {"tag": "fakeip", "address": "fakeip"}
     ],
     "rules": [

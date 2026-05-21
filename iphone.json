@@ -9,17 +9,17 @@
     ],
     "rules": [
       {"outbound": "any", "action": "route", "server": "local", "disable_cache": true},
-   	  {"clash_mode": "direct", "server": "local"}, 
-      {"clash_mode": "global", "server": "fakeip"},
+   	  {"clash_mode": "direct", "action": "route", "server": "local"}, 
+      {"clash_mode": "global", "action": "route", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
-      {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1},
+      {"query_type": ["A", "AAAA"], "action": "route", "server": "fakeip", "rewrite_ttl": 1},
       {"rule_set": "geosite-cn", "action": "route", "server": "local"}
     ],
     "final": "foreign",
     "client_subnet": "223.5.5.0/24",
     "strategy": "prefer_ipv4",
     "independent_cache": true,
-    "reverse_mapping": true,
+    "reverse_mapping": true
   },
   "outbounds": [
     {"tag": "🚀 节点选择", "type": "selector", "outbounds": ["💿 专线节点", "🇭🇰 香港节点", "🌏 亚洲节点", "🇨🇳 台湾节点", "🇺🇲 美国节点", "🌎 其它节点"]},

@@ -1,24 +1,25 @@
 {
   "dns": {
+  	"fakeip": {"enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"},
     "servers": [
-      {"tag": "local", "address": "223.5.5.5"},
-      {"tag": "public", "address": "223.6.6.6"},
-      {"tag": "foreign", "address": "https://8.8.8.8", "detour": "🚀 节点选择"},
+      {"tag": "local", "address": "https://223.5.5.5/dns-query", "detour": "🎯 全球直连"},
+      {"tag": "public", "address": "https://223.6.6.6/dns-query", "detour": "🎯 全球直连"},
+      {"tag": "foreign", "address": "https://8.8.8.8/dns-query", "detour": "GLOBAL"},
       {"tag": "fakeip", "address": "fakeip"}
     ],
     "rules": [
-      {"clash_mode": "direct", "server": "local"},
-      {"clash_mode": "global", "server": "fakeip"},
+      {"outbound": "any", "action": "route", "server": "local", "disable_cache": true},
+   	  {"clash_mode": "direct", "action": "route", "server": "local"}, 
+      {"clash_mode": "global", "action": "route", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
-      {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1},
-      {"rule_set": "geosite-cn", "server": "local"}
+      {"query_type": ["A", "AAAA"], "action": "route", "server": "fakeip", "rewrite_ttl": 1},
+      {"rule_set": "geosite-cn", "action": "route", "server": "local"}
     ],
     "final": "foreign",
     "client_subnet": "223.5.5.0/24",
     "strategy": "prefer_ipv4",
     "independent_cache": true,
-    "reverse_mapping": true,
-  	"fakeip": {"enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"}
+    "reverse_mapping": true
   },
   "outbounds": [
     {"tag": "🚀 节点选择", "type": "selector", "outbounds": ["💿 专线节点", "🇭🇰 香港节点", "🌏 亚洲节点", "🇨🇳 台湾节点", "🇺🇲 美国节点", "🌎 其它节点"]},

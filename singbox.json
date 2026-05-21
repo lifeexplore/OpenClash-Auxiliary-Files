@@ -1,14 +1,12 @@
 {
   "dns": {
-  	"fakeip": {"enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"},
     "servers": [
-      {"tag": "local", "address": "https://223.5.5.5/dns-query", "detour": "🎯 全球直连"},
-      {"tag": "public", "address": "https://223.6.6.6/dns-query", "detour": "🎯 全球直连"},
-      {"tag": "foreign", "address": "https://8.8.8.8/dns-query", "detour": "GLOBAL"},
-      {"tag": "fakeip", "address": "fakeip"}
+      {"tag": "local", "address": "223.5.5.5"},
+      {"tag": "public", "address": "223.6.6.6"},
+      {"tag": "foreign", "address": "https://8.8.8.8", "detour": "🚀 节点选择"},
+      {"tag": "fakeip", "address": "fakeip", "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"}
     ],
     "rules": [
-      {"outbound": "any", "action": "route", "server": "local", "disable_cache": true},
    	  {"clash_mode": "direct", "action": "route", "server": "local"}, 
       {"clash_mode": "global", "action": "route", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
@@ -72,7 +70,8 @@
       {"tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs", "download_detour": "🎯 全球直连"}
     ],
     "final": "🐠 漏网之鱼",
-	"auto_detect_interface": true
+	"auto_detect_interface": true,
+    "default_domain_resolver": {"server": "public"}
   },
   "inbounds": [
     {

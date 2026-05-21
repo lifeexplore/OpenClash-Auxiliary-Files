@@ -7,13 +7,13 @@
       {"tag": "fakeip", "address": "fakeip"}
     ],
     "rules": [
+      {"outbound": "any", "action": "route", "server": "local"},
    	  {"clash_mode": "direct", "server": "local"}, 
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
       {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1},
       {"rule_set": "geosite-cn", "server": "local"}
     ],
-	{"outbound": "any", "action": "route", "server": "local"},    
     "final": "foreign",
     "client_subnet": "223.5.5.0/24",
     "strategy": "prefer_ipv4",

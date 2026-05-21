@@ -7,7 +7,7 @@
       {"tag": "fakeip", "address": "fakeip"}
     ],
     "rules": [
-      {"clash_mode": "direct", "server": "local"},
+      {"outbound": "any", "server": "local"},
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
       {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1},
@@ -40,7 +40,6 @@
   "route": {
     "auto_detect_interface": true,   
     "rules": [
-      {"outbound": "any", "server": "local"},    
       {"inbound": "dns", "action": "hijack-dns"},
       {"ip_is_private": true, "outbound": "🎯 全球直连"},
       {"clash_mode": "direct", "outbound": "🎯 全球直连"},

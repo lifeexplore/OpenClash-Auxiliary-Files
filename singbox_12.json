@@ -44,10 +44,6 @@
         "enabled": true,
   		"server_name": "xy.com", 
   		"insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/12345678_abcdef"
       }
     },   
     {"tag": "GLOBAL", "type": "selector", "outbounds": ["🚀 节点选择", "♻️ 自动选择"]},

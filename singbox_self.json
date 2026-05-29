@@ -64,6 +64,7 @@
       {"rule_set": "geoip-cn", "action": "route", "outbound": "🎯 全球直连"}      
     ],
     "rule_set": [
+      {"tag": "blacklist", "type": "remote", "format": "json", "path": "https://raw.githubusercontent.com/lifeexplore/OpenClash-Auxiliary-Files/openclash-auxiliary-files/blacklist.json", "download_detour": "🎯 全球直连"},
       {"tag": "OpenAI", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geosite/openai.srs", "download_detour": "🎯 全球直连"},
       {"tag": "YouTube", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geosite/youtube.srs", "download_detour": "🎯 全球直连"},
       {"tag": "Google", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geosite/google.srs", "download_detour": "🎯 全球直连"},

@@ -3,7 +3,8 @@
   "rules": [
     {
       "domain_suffix": [
-        "tripdata.app"
+        "tripdata.app",
+        "overcast-cdn.com"
       ],
       "domain_keyword": [
         "bbc.co"

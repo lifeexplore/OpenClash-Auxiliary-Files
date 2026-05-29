@@ -1,14 +1,9 @@
 {
-  "version": 1,
-  "rules": [
-    {
-      "domain_suffix": [
-        "tripdata.app",
-        "overcast-cdn.com"
-      ],
-      "domain_keyword": [
-        "bbc.co"
-      ]
-    }
+  "domain_suffix": [
+    "tripdata.app",
+    "overcast-cdn.com"
+  ],
+  "domain_keyword": [
+    "bbc.co"
   ]
 }

@@ -52,6 +52,7 @@
       {"rule_set": "Telegram", "action": "route", "outbound": "📲 电报信息"},
       {"rule_set": "Twitter", "action": "route", "outbound": "📲 电报信息"},
       {"rule_set": "Proxy", "action": "route", "outbound": "GLOBAL"},
+      {"rule_set": "blacklist", "action": "route", "outbound": "GLOBAL"},
       {"rule_set": "geosite-cn", "action": "route", "outbound": "🎯 全球直连"},
       {"rule_set": "Apple", "action": "route", "outbound": "🎯 全球直连"},
       {"rule_set": "Microsoft", "action": "route", "outbound": "🎯 全球直连"},

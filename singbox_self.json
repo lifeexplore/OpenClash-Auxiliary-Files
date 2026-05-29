@@ -15,9 +15,7 @@
   	  { 
     	"tag": "foreign", 
     	"type": "https", 
-    	"server": "8.8.8.8", 
-    	"domain_resolver": "local",
-    	"detour": "🚀 节点选择" 
+    	"server": "8.8.8.8"
   	  },
 	  { 
     	"tag": "fakeip", 

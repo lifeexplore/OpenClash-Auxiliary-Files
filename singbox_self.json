@@ -128,13 +128,12 @@
       "type": "tun",
       "interface_name": "momo",
       "mtu": 1400,
-      "address": [
-        "172.31.0.1/30",
-        "fdfe:dcba:9876::1/126"
-      ],
+ 	  "gvisor": {"no_delay": true},     
+      "address": ["172.31.0.1/30"],
+  	  "stack": "gvisor",
+  	  "endpoint_independent_nat": true,
       "auto_route": true,
   	  "strict_route": false,
-  	  "stack": "gvisor",
   	  "sniff": true,
   	  "sniff_override_destination": true,
   	  "sniff_timeout": "100ms"

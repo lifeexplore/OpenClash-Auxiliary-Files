@@ -4,7 +4,8 @@
 	  { 
     	"tag": "local", 
     	"type": "udp", 
-    	"server": "223.5.5.5"
+    	"server": "223.5.5.5",
+    	"detour": "🎯 全球直连"
   	  },
   	  { 
     	"tag": "public", 
@@ -20,8 +21,7 @@
 	  { 
     	"tag": "fakeip", 
     	"type": "fakeip", 
-    	"inet4_range": "198.18.0.0/15", 
-    	"inet6_range": "fc00::/18"
+    	"inet4_range": "198.18.0.0/15"
   	  }
 	],
     "rules": [
@@ -30,10 +30,7 @@
       {"query_type": "HTTPS", "action": "reject"},
       {"rule_set": "geosite-cn", "server": "local"},
       {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1},
-	  {
-      "query_type": ["A", "AAAA"],
-      "server": "fakeip"
-      }   
+	  {"query_type": ["A", "AAAA"], "server": "fakeip"}   
     ],
     "client_subnet": "223.5.5.0/24",
     "strategy": "ipv4_only",

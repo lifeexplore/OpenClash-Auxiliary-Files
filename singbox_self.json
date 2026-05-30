@@ -22,8 +22,7 @@
     	"type": "fakeip", 
     	"inet4_range": "198.18.0.0/15"
   	  }
-	],
-    "default_server": "public",	
+	],	
     "rules": [
       {"clash_mode": "direct", "server": "local"},
       {"clash_mode": "global", "server": "fakeip"},

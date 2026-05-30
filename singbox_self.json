@@ -11,7 +11,7 @@
       {"query_type": "HTTPS", "action": "reject"},
       {"rule_set": "geosite-cn", "server": "local"},
       {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1},
-      {"server": "public"}
+	  {"query_type": ["A", "AAAA"], "server": "fakeip"}
     ],
     "client_subnet": "223.5.5.0/24",
     "strategy": "ipv4_only",

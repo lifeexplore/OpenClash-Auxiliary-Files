@@ -17,6 +17,7 @@
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
       {"rule_set": "geosite-cn", "server": "local"},
+      {"rule_set": "geoip-cn", "outbound": "🎯 全球直连"},   
 	  {"rule_set": "Microsoft", "server": "fakeip"},      
       {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1},
 	  {"query_type": ["A", "AAAA"], "server": "fakeip"}   
@@ -48,8 +49,8 @@
       {"ip_is_private": true, "action": "route", "outbound": "🎯 全球直连"},
       {"clash_mode": "direct", "action": "route", "outbound": "🎯 全球直连"},
       {"clash_mode": "global", "action": "route", "outbound": "GLOBAL"},
-      {"ip_cidr": ["100.64.0.0/10", "fd7a:115c:a1e0::/48"], "outbound": "direct"},
-      {"domain_suffix": ["tailscale.com", "ts.net"], "outbound": "direct"},
+      {"ip_cidr": ["100.64.0.0/10", "fd7a:115c:a1e0::/48"], "action": "route", "outbound": "🎯 全球直连"},
+      {"domain_suffix": ["tailscale.com", "ts.net"], "action": "route", "outbound": "🎯 全球直连"},
       {"rule_set": "YouTube", "action": "route", "outbound": "🌍 国外媒体"},
       {"rule_set": "Media", "action": "route", "outbound": "🌍 国外媒体"},
       {"rule_set": "Google", "action": "route", "outbound": "🍀 Google"},

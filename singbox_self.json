@@ -23,11 +23,13 @@
     	"inet4_range": "198.18.0.0/15"
   	  }
 	],
+    "default_server": "public",	
     "rules": [
       {"clash_mode": "direct", "server": "local"},
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
       {"rule_set": "geosite-cn", "server": "local"},
+      {"rule_set": "geosite-microsoft", "server": "fakeip"},
       {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1},
 	  {"query_type": ["A", "AAAA"], "server": "fakeip"}   
     ],

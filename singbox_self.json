@@ -1,25 +1,16 @@
 {
   "dns": {
 	"servers": [
-	  { 
-    	"tag": "local", 
-    	"type": "udp", 
-    	"server": "223.5.5.5"
-  	  },
+	  { "tag": "local", "type": "udp", "server": "223.5.5.5"},
   	  { "tag": "public", "type": "https", "server": "dns.alidns.com", "domain_resolver": "local"},
-	  { 
-    	"tag": "fakeip", 
-    	"type": "fakeip", 
-    	"inet4_range": "198.18.0.0/15"
-  	  }
+	  { "tag": "fakeip", "type": "fakeip", "inet4_range": "198.18.0.0/15"}
 	],	
     "rules": [
       {"clash_mode": "direct", "server": "local"},
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
       {"rule_set": "geosite-cn", "server": "local"},      
-      {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1},
-	  {"query_type": ["A", "AAAA"], "server": "fakeip"}   
+      {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1}  
     ],
     "client_subnet": "223.5.5.0/24",
     "strategy": "ipv4_only",

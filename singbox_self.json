@@ -7,12 +7,6 @@
     	"server": "223.5.5.5"
   	  },
   	  { 
-    	"tag": "public", 
-    	"type": "https", 
-    	"server": "dns.alidns.com", 
-    	"domain_resolver": "local" 
-  	  },
-  	  { 
     	"tag": "foreign", 
     	"type": "https", 
     	"server": "8.8.8.8"
@@ -28,6 +22,7 @@
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
       {"rule_set": "geosite-cn", "server": "local"},
+	  {"rule_set": "Microsoft", "server": "fakeip"},      
       {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1},
 	  {"query_type": ["A", "AAAA"], "server": "fakeip"}   
     ],

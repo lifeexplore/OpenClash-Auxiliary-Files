@@ -2,7 +2,7 @@
   "dns": {
 	"servers": [
 	  { "tag": "local", "type": "udp", "server": "223.5.5.5"},
-  	  { "tag": "public", "type": "https", "server": "dns.google/dns-query", "domain_resolver": "local"},
+  	  { "tag": "public", "type": "https", "server": "https://dns.google/dns-query", "domain_resolver": "local"},
 	  { "tag": "fakeip", "type": "fakeip", "inet4_range": "198.18.0.0/15"}
 	],	
     "rules": [

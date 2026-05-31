@@ -1,17 +1,6 @@
-{
-  "version": 1,
-  "rules": [
-    {
-      "domain_suffix": [
-        "tripdata.app",
-        "overcast-cdn.com",
-        "pipecnd.vip"
-      ],
-      "domain_keyword": [
-        "bbc.co",
-        "mxwljsq",
-        "megaphone"
-      ]
-    }
-  ]
-}
+DOMAIN-SUFFIX,tripdata.app
+DOMAIN-SUFFIX,overcast-cdn.com
+DOMAIN-SUFFIX,pipecnd.vip
+DOMAIN-KEYWORD,bbc.co
+DOMAIN-KEYWORD,mxwljsq
+DOMAIN-KEYWORD,megaphone

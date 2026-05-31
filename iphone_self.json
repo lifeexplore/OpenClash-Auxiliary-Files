@@ -16,11 +16,11 @@
     "independent_cache": true
   },
   "outbounds": [
-    {"tag": "🚀 节点选择", "type": "selector", "outbounds": ["💿 专线节点", "🇭🇰 香港节点", "🌏 亚洲节点", "🇨🇳 台湾节点", "🇺🇲 美国节点", "🌎 其它节点"]},
-    {"tag": "GLOBAL", "type": "selector", "outbounds": ["🚀 节点选择", "♻️ 自动选择"]},
-    {"tag": "🌍 国外媒体", "type": "selector", "outbounds": ["🚀 节点选择", "♻️ 自动选择", "🎯 全球直连"]},
-    {"tag": "🍀 Google", "type": "selector", "outbounds": ["🚀 节点选择", "♻️ 自动选择", "🎯 全球直连"]},
-    {"tag": "🐠 漏网之鱼", "type": "selector", "outbounds": ["🚀 节点选择", "♻️ 自动选择", "🎯 全球直连"]},
+    {"tag": "🚀 节点选择", "type": "selector", "outbounds": ["🛸 自建hy", "👨‍💻 自建ws", "💿 专线节点", "🇭🇰 香港节点", "🌏 亚洲节点", "🇨🇳 台湾节点", "🇺🇲 美国节点", "🌎 其它节点"]},
+    {"tag": "GLOBAL", "type": "selector", "outbounds": ["🛸 自建hy", "👨‍💻 自建ws", "🚀 节点选择", "♻️ 自动选择"]},
+    {"tag": "🌍 国外媒体", "type": "selector", "outbounds": ["🛸 自建hy", "👨‍💻 自建ws", "🚀 节点选择", "♻️ 自动选择", "🎯 全球直连"]},
+    {"tag": "🍀 Google", "type": "selector", "outbounds": ["🛸 自建hy", "👨‍💻 自建ws", "🚀 节点选择", "♻️ 自动选择", "🎯 全球直连"]},
+    {"tag": "🐠 漏网之鱼", "type": "selector", "outbounds": ["🛸 自建hy", "👨‍💻 自建ws", "🚀 节点选择", "♻️ 自动选择", "🎯 全球直连"]},
     {"tag": "💿 专线节点", "type": "urltest", "outbounds": ["{all}"], "filter": [{"action": "exclude", "keywords": ["专线|IPLC"]}, {"action": "exclude", "keywords": ["RUS"]}], "interval": "10m", "tolerance": 100},
     {"tag": "🇭🇰 香港节点", "type": "urltest", "outbounds": ["{all}"], "filter": [{"action": "include", "keywords": ["🇭🇰|HK|hk|香港|港|HongKong"]}], "interval": "10m", "tolerance": 100},
     {"tag": "🌏 亚洲节点", "type": "urltest", "outbounds": ["{all}"], "filter": [{"action": "include", "keywords": ["🇯🇵|JP|jp|日本|日|Japan"]}], "interval": "10m", "tolerance": 100},

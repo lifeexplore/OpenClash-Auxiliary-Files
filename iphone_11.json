@@ -75,12 +75,12 @@
     ],
     "final": "🐠 漏网之鱼",
 	"auto_detect_interface": true,
-	"default_domain_resolver": {"server": "local"}
+    "default_domain_resolver": {"server": "local"}
   },
   "inbounds": [
     {
       "type": "tun",
-      “tag”: "tun-in",
+      "tag": "tun-in",
       "address": [
         "172.19.0.0/30",
         "fdfe:dcba:9876::0/126"
@@ -89,7 +89,7 @@
       "auto_route": true,
 	  "strict_route": true,
       "sniff": true,   
-      "sniff_override_destination": true
+      "sniff_override_destination": true      
     }
   ],
   "experimental": {

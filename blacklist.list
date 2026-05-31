@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain_suffix": [
+        "tripdata.app",
+        "overcast-cdn.com",
+        "pipecnd.vip"
+      ],
+      "domain_keyword": [
+        "bbc.co",
+        "mxwljsq",
+        "megaphone"
+      ]
+    }
+  ]
+}

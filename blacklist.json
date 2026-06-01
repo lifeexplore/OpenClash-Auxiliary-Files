@@ -7,14 +7,15 @@
         "overcast-cdn.com",
         "captivate.fm",
         "studentvoice.ai",
-        "pipecdn.vip",
         "anybound.vip",
         "famelack.com"
       ],
       "domain_keyword": [
         "bbc.co",
         "mxwljsq",
-        "megaphone"
+        "megaphone",
+        "pipecdn",
+        "anybound"
       ]
     }
   ]

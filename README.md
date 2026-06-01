@@ -12,6 +12,5 @@
 1. OpenWrt sing-box版本1.12
 2. iPhone sing-box版本1.11
 3. 旁路由模式
-4. 自定义模板地址：https://raw.githubusercontent.com/lifeexplore/OpenClash-Auxiliary-Files/refs/heads/openclash-auxiliary-files/ACL4SSR.ini
-5. 订阅转换服务地址：选择的是Docker的[sing-box-subcribe](https://github.com/Toperlock/sing-box-subscribe)
+4. 订阅转换服务地址：选择的是Docker的[sing-box-subcribe](https://github.com/Toperlock/sing-box-subscribe)
 

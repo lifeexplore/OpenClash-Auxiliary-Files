@@ -1,16 +1,15 @@
-domain:
-  - tripdata.app
-  - overcast-cdn.com
-  - captivate.fm
-  - studentvoice.ai
-  - flightcast.com
-  - tritondigital.com
-  - transistorcdn.com
-  - pipecdn.vip
-  - anybound.vip
-  - global-cdn.me
-  - famelack.com
-domain_keyword:  
-  - bbci.co
-  - mxwljsq
-  - megaphone
+payload:
+  - DOMAIN-SUFFIX, tripdata.app
+  - DOMAIN-SUFFIX, overcast-cdn.com
+  - DOMAIN-SUFFIX, captivate.fm
+  - DOMAIN-SUFFIX, studentvoice.ai
+  - DOMAIN-SUFFIX, flightcast.com
+  - DOMAIN-SUFFIX, tritondigital.com
+  - DOMAIN-SUFFIX, transistorcdn.com
+  - DOMAIN-SUFFIX, pipecdn.vip
+  - DOMAIN-SUFFIX, anybound.vip
+  - DOMAIN-SUFFIX, global-cdn.me
+  - DOMAIN-SUFFIX, famelack.com 
+  - DOMAIN-KEYWORD, bbci.co
+  - DOMAIN-KEYWORD, mxwljsq
+  - DOMAIN-KEYWORD, megaphone

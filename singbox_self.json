@@ -124,7 +124,6 @@
   	  "stack": "mixed",
       "auto_route": true,
   	  "strict_route": false,
-  	  "endpoint_independent_nat": false, 
   	  "sniff": true,
   	  "sniff_override_destination": true,
   	  "sniff_timeout": "100ms"

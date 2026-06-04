@@ -41,7 +41,7 @@
       {"clash_mode": "global", "action": "route", "outbound": "GLOBAL"},
       {"ip_cidr": ["100.64.0.0/10", "fd7a:115c:a1e0::/48"], "action": "route", "outbound": "🎯 全球直连"},
       {"domain_suffix": ["tailscale.com", "ts.net"], "action": "route", "outbound": "🎯 全球直连"},
-	  {"domain": ["open.live.bbc.co.uk"], "domain_suffix": ["bbc.co.uk", "bbci.co.uk"], "action": "route",  "outbound": "GLOBAL"},    
+	  {"domain_suffix": ["bbc.co.uk", "bbci.co.uk"], "action": "route", "outbound": "GLOBAL"},
       {"rule_set": "blacklist", "action": "route", "outbound": "GLOBAL"},
       {"rule_set": "Apple", "action": "route", "outbound": "🎯 全球直连"},
       {"rule_set": "Microsoft", "action": "route", "outbound": "🎯 全球直连"},

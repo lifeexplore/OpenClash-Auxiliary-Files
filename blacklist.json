@@ -5,7 +5,7 @@
       "domain_suffix": [
         "tripdata.app",
         "overcast-cdn.com",
-        "bbc.co.uk",
+        "live.bbc.co.uk",
         "captivate.fm",
         "overcast.fm",
         "studentvoice.ai",
@@ -19,7 +19,6 @@
       ],
       "domain_keyword": [
         "bbci.co",
-        "bbc.co",
         "mxwljsq",
         "megaphone"
       ]

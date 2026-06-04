@@ -50,7 +50,7 @@
           ".bbci.co.uk"
         ],
         "outbound": "GLOBAL"
-      }      
+      },    
       {"rule_set": "blacklist", "action": "route", "outbound": "GLOBAL"},
       {"rule_set": "Apple", "action": "route", "outbound": "🎯 全球直连"},
       {"rule_set": "Microsoft", "action": "route", "outbound": "🎯 全球直连"},

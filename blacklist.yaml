@@ -1,6 +1,7 @@
 payload:
     - DOMAIN-SUFFIX, tripdata.app
     - DOMAIN-SUFFIX, overcast-cdn.com
+    - DOMAIN-SUFFIX, bbc.co.uk
     - DOMAIN-SUFFIX, captivate.fm
     - DOMAIN-SUFFIX, studentvoice.ai
     - DOMAIN-SUFFIX, flightcast.com
@@ -11,6 +12,5 @@ payload:
     - DOMAIN-SUFFIX, global-cdn.me
     - DOMAIN-SUFFIX, famelack.com 
     - DOMAIN-KEYWORD, bbci.co
-    - DOMAIN-KEYWORD, bbc.co
     - DOMAIN-KEYWORD, mxwljsq
     - DOMAIN-KEYWORD, megaphone

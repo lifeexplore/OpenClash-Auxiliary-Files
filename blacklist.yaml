@@ -11,5 +11,6 @@ payload:
     - DOMAIN-SUFFIX, global-cdn.me
     - DOMAIN-SUFFIX, famelack.com 
     - DOMAIN-KEYWORD, bbci.co
+    - DOMAIN-KEYWORD, bbc.co
     - DOMAIN-KEYWORD, mxwljsq
     - DOMAIN-KEYWORD, megaphone

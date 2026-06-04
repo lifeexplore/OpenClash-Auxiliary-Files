@@ -49,6 +49,7 @@
           ".bbc.co.uk",
           ".bbci.co.uk"
         ],
+        "action": "route", 
         "outbound": "GLOBAL"
       },    
       {"rule_set": "blacklist", "action": "route", "outbound": "GLOBAL"},

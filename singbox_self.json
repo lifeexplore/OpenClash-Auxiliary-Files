@@ -16,8 +16,7 @@
     "client_subnet": "223.5.5.0/24",
     "strategy": "ipv4_only",
     "independent_cache": true,
-    "reverse_mapping": true
-  },
+    "reverse_mapping": true,
   "outbounds": [
     {"tag": "🚀 节点选择", "type": "selector", "outbounds": ["🛸 自建hy", "👨‍💻 自建ws", "💿 专线节点", "🇭🇰 香港节点", "🌏 亚洲节点", "🇨🇳 台湾节点", "🇺🇲 美国节点", "🌎 其它节点"]},
     {"tag": "GLOBAL", "type": "selector", "outbounds": ["🛸 自建hy", "👨‍💻 自建ws", "🚀 节点选择", "♻️ 自动选择"]},
@@ -42,6 +41,16 @@
       {"clash_mode": "global", "action": "route", "outbound": "GLOBAL"},
       {"ip_cidr": ["100.64.0.0/10", "fd7a:115c:a1e0::/48"], "action": "route", "outbound": "🎯 全球直连"},
       {"domain_suffix": ["tailscale.com", "ts.net"], "action": "route", "outbound": "🎯 全球直连"},
+	  {
+        "domain": [
+          "open.live.bbc.co.uk"
+        ],
+        "domain_suffix": [
+          ".bbc.co.uk",
+          ".bbci.co.uk"
+        ],
+        "outbound": "你的英国代理节点标签"
+      }      
       {"rule_set": "blacklist", "action": "route", "outbound": "GLOBAL"},
       {"rule_set": "Apple", "action": "route", "outbound": "🎯 全球直连"},
       {"rule_set": "Microsoft", "action": "route", "outbound": "🎯 全球直连"},

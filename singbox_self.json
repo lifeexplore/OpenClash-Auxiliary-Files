@@ -49,7 +49,7 @@
           ".bbc.co.uk",
           ".bbci.co.uk"
         ],
-        "outbound": "你的英国代理节点标签"
+        "outbound": "GLOBAL"
       }      
       {"rule_set": "blacklist", "action": "route", "outbound": "GLOBAL"},
       {"rule_set": "Apple", "action": "route", "outbound": "🎯 全球直连"},

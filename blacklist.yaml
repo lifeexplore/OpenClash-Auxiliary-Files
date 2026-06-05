@@ -5,6 +5,7 @@ payload:
     - DOMAIN-SUFFIX, captivate.fm
     - DOMAIN-SUFFIX, overcast.fm
     - DOMAIN-SUFFIX, studentvoice.ai
+    - DOMAIN-SUFFIX, omnycontent.com
     - DOMAIN-SUFFIX, flightcast.com
     - DOMAIN-SUFFIX, tritondigital.com
     - DOMAIN-SUFFIX, transistorcdn.com

@@ -13,5 +13,6 @@ payload:
     - DOMAIN-SUFFIX, anybound.vip
     - DOMAIN-SUFFIX, global-cdn.me
     - DOMAIN-SUFFIX, famelack.com 
+    - DOMAIN-SUFFIX, usatoday.com    
     - DOMAIN-KEYWORD, mxwljsq
     - DOMAIN-KEYWORD, megaphone

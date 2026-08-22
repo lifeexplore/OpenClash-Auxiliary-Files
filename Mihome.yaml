@@ -168,6 +168,12 @@ rule-providers:
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geosite/twitter.mrs"
     path: ./rules/twitter.mrs
     interval: 86400    
+  Telegram:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geosite/telegram.mrs"
+    path: ./rules/telegram.mrs
+    interval: 86400    
   Media:
     type: http
     behavior: classical
@@ -221,7 +227,7 @@ rule-providers:
     behavior: ipcidr
     format: mrs
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/telegram.mrs"
-    path: ./rules/telegram.mrs
+    path: ./rules/telegramip.mrs
     interval: 86400
   Twitterip:
     type: http
@@ -259,7 +265,8 @@ rules:
   - RULE-SET, Microsoft, DIRECT
   - RULE-SET, YouTube, 🌍 国外媒体
   - RULE-SET, Media, 🌍 国外媒体
-  - RULE-SET, Twitter, 🌍 国外媒体
+  - RULE-SET, Telegram, GLOBAL
+  - RULE-SET, Twitter, GLOBAL
   - RULE-SET, Google, 🍀 谷歌FCM
   - RULE-SET, blacklist, GLOBAL
   - RULE-SET, geosite-cn, DIRECT

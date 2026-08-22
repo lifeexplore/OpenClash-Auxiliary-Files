@@ -1,0 +1,279 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: 127.0.0.1:9090
+proxies:
+  - name: "👨‍💻 自建ws"
+    type: vless
+    server: seed-hk.com
+    port: 8443
+    uuid: 5dd32b62-dfac-40e1-8d3e-d87dba6f82ac
+    udp: true
+    tls: true                  
+    skip-cert-verify: true  
+    servername: seed-hk.com
+    network: grpc
+    grpc-opts:
+      grpc-service-name: "speed-grpc-x79w2k"
+  - name: "🛸 自建hy"
+    type: hysteria2
+    server: seed-hk.com
+    port: 50000
+    password: seed_node_hysteria-x79w2k
+    up: "20 Mbps"
+    down: "80 Mbps"
+    sni: seed-hk.com
+    skip-cert-verify: true     # 跳过严格证书验证
+    alpn:
+      - h3                    
+    obfs: salamander  
+    obfs-password: seed_node_hysteria-x79w2k      
+#      
+proxy-providers:
+  airport:
+    type: http
+    url: "https://gbshct.spphhnhg.top/link2/4djUxrOL7Y2scIPOnhSSD7esChZkdjV8" 
+    interval: 86400
+    path: ./airport.yaml
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+#
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - 🛸 自建hy
+      - 👨‍💻 自建ws
+      - 💿 视频节点
+      - 🇭🇰 香港节点
+      - 🌏 亚洲节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🌎 其它节点
+  - name: ♻️ 自动选择
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    use: [airport]
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+      - 🛸 自建hy
+      - 👨‍💻 自建ws
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - DIRECT
+  - name: 🍀 谷歌FCM
+    type: select
+    proxies:
+      - 🛸 自建hy
+      - 👨‍💻 自建ws
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🛸 自建hy
+      - 👨‍💻 自建ws
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - DIRECT 
+  - name: 💿 视频节点
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    use: [airport]  
+  - name: 🇭🇰 香港节点
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50   
+    use: [airport]
+    filter: "HK|hk|香港|港|HongKong"
+  - name: 🌏 亚洲节点
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    use: [airport]    
+    filter: "日本|东京|大阪|埼玉|[^-]日|JP|Japan|韩国|新加坡"
+  - name: 🇨🇳 台湾节点
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50   
+    use: [airport]
+    filter: "台湾|Taiwan"
+  - name: 🇺🇲 美国节点
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    use: [airport]    
+    filter: "美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States"
+  - name: 🌎 其它节点
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    use: [airport]    
+    filter: "印|英|德国|荷|巴|阿|澳|沙" 
+#
+rule-providers:
+  blacklist:
+    type: http
+    behavior: classical
+    format: yaml
+    url: "https://raw.githubusercontent.com/lifeexplore/Sing-box-Auxiliary-Files/sing-box-auxiliary-files/blacklist.yaml"
+    path: ./rules/blacklist.yaml
+    interval: 86400
+  YouTube:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geosite/youtube.mrs"
+    path: ./rules/youtube.mrs
+    interval: 86400
+  Google:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geosite/google.mrs"
+    path: ./rules/google.mrs
+    interval: 86400
+  Apple:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geosite/apple.mrs"
+    path: ./rules/apple.mrs
+    interval: 86400
+  Microsoft:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geosite/microsoft.mrs"
+    path: ./rules/microsoft.mrs
+    interval: 86400
+  Twitter:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geosite/twitter.mrs"
+    path: ./rules/twitter.mrs
+    interval: 86400    
+  Media:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geosite/proxymedia.mrs"
+    path: ./rules/media.mrs
+    interval: 86400
+  Proxy:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geosite/proxy.mrs"
+    path: ./rules/proxy.mrs
+    interval: 86400
+  Private:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geosite/private.mrs"
+    path: ./rules/private.mrs
+    interval: 86400
+  geosite-cn:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geosite/cn.mrs"
+    path: ./rules/cn.mrs
+    interval: 86400
+  Googleip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/google.mrs"
+    path: ./rules/googleip.mrs
+    interval: 86400    
+  Facebookip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/facebook.mrs"
+    path: ./rules/facebook.mrs
+    interval: 86400
+  Netflixip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/netflix.mrs"
+    path: ./rules/netflix.mrs
+    interval: 86400
+  Telegramip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/telegram.mrs"
+    path: ./rules/telegram.mrs
+    interval: 86400
+  Twitterip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/twitter.mrs"
+    path: ./rules/twitterip.mrs
+    interval: 86400
+  Privateip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/private.mrs"
+    path: ./rules/privateip.mrs
+    interval: 86400
+  Appleip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs"
+    path: ./rules/appleip.mrs
+    interval: 86400
+  geoip-cn:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/cn.mrs"
+    path: ./rules/geoip.mrs
+    interval: 86400
+#
+rules:
+  - DOMAIN-SUFFIX,bbc.co.uk,GLOBAL
+  - DOMAIN-SUFFIX,bbci.co.uk,GLOBAL  
+  - RULE-SET, Apple, DIRECT
+  - RULE-SET, Microsoft, DIRECT
+  - RULE-SET, YouTube, 🌍 国外媒体
+  - RULE-SET, Media, 🌍 国外媒体
+  - RULE-SET, Twitter, 🌍 国外媒体
+  - RULE-SET, Google, 🍀 谷歌FCM
+  - RULE-SET, blacklist, GLOBAL
+  - RULE-SET, geosite-cn, DIRECT
+  - RULE-SET, Private, DIRECT
+  - RULE-SET, Proxy, GLOBAL
+  - RULE-SET, Googleip, 🍀 谷歌FCM
+  - RULE-SET, Facebookip, GLOBAL
+  - RULE-SET, Netflixip, GLOBAL
+  - RULE-SET, Telegramip, GLOBAL
+  - RULE-SET, Twitterip, GLOBAL
+  - RULE-SET, Privateip, DIRECT 
+  - RULE-SET, Appleip, DIRECT  
+  - RULE-SET, geoip-cn, DIRECT  
+  - GEOSITE,CN,DIRECT  
+  - MATCH, 🐟 漏网之鱼
+   
+   
